@@ -10,6 +10,12 @@ module.exports = function(opt){
             opt = {};
         }
 
+        // 'url' option is required
+        // set it automatically if not provided
+        if(!opt.url) {
+            opt.url = 'file://' + file.path;
+        }
+
         if (file.isNull()) {
             this.push(file);
             return cb();
@@ -20,7 +26,7 @@ module.exports = function(opt){
             return cb();
         }
 
-        juice(file.path, opt, function (err, html) {
+        juice.juiceContent(file.contents, opt, function(err, html) {
             if (err) {
                 this.emit('error', new gutil.PluginError('gulp-inline-css', err));
             }
