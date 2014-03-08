@@ -9,7 +9,7 @@ var inlineCss = require('../index');
 
 function compare(input, options, done) {
     var fakeFile = new gutil.File({
-        path: './test/fixtures/in.html',
+        path: path.resolve('./test/fixtures/in.html'),
         cwd: './test/',
         base: './test/fixtures/',
         contents: new Buffer(String(input))
