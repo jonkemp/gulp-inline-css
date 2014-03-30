@@ -1,21 +1,15 @@
+'use strict';
 var gutil = require('gulp-util');
 var through = require('through2');
 var juice = require('juice');
 
 module.exports = function(opt){
     return through.obj(function (file, enc, cb) {
-        'use strict';
-
         opt = opt || {};
 
         // 'url' option is required
         // set it automatically if not provided
         opt.url = opt.url || 'file://' + file.path;
-
-        if (file.isNull()) {
-            this.push(file);
-            return cb();
-        }
 
         if (file.isStream()) {
             this.emit('error', new gutil.PluginError('gulp-inline-css', 'Streaming not supported'));

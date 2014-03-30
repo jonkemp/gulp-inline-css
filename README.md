@@ -46,6 +46,7 @@ Output:
 - HTML emails. For a comprehensive list of supported selectors see
 [here](http://www.campaignmonitor.com/css/)
 - Embedding HTML in 3rd-party websites.
+- Performance. Downloading external stylesheets delays the rendering of the page in the browser. Inlining CSS speeds up this process because the browser doesn't have to wait to download an external stylesheet to start rendering the page.
 
 
 ## Install
