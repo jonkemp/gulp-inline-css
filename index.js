@@ -1,7 +1,7 @@
 'use strict';
 var gutil = require('gulp-util');
 var through = require('through2');
-var juice = require('juice');
+var juice = require('juice2');
 
 module.exports = function(opt){
     return through.obj(function (file, enc, cb) {
