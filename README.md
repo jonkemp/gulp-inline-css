@@ -2,7 +2,7 @@
 
 > Inline your CSS properties into the `style` attribute in an html file. Useful for emails.
 
-Inspired by the grunt plugin [grunt-inline-css](https://github.com/jgallen23/grunt-inline-css). Uses the [juice](https://github.com/LearnBoost/juice) library.
+Inspired by the grunt plugin [grunt-inline-css](https://github.com/jgallen23/grunt-inline-css). Uses the [juice](https://github.com/andrewrk/juice) library.
 
 ## How It Works
 
@@ -89,7 +89,7 @@ gulp.task('default', function() {
 });
 ```
 
-Options are passed directly to [juice](https://github.com/LearnBoost/juice).
+Options are passed directly to [juice](https://github.com/andrewrk/juice).
 
 
 ## API
