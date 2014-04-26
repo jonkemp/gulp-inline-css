@@ -1,6 +1,6 @@
 {
   "name": "gulp-inline-css",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "description": "Inline linked css in an html file. Useful for emails.",
   "main": "index.js",
   "scripts": {
