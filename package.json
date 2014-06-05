@@ -1,6 +1,6 @@
 {
   "name": "gulp-inline-css",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Inline linked css in an html file. Useful for emails.",
   "main": "index.js",
   "scripts": {
@@ -25,8 +25,8 @@
   "homepage": "https://github.com/jonkemp/gulp-inline-css",
   "dependencies": {
     "gulp-util": "^2.2.14",
-    "juice2": "^0.5.1",
-    "through2": "^0.4.1"
+    "juice2": "^1.2.0",
+    "through2": "^0.5.1"
   },
   "devDependencies": {
     "gulp": "^3.6.2",
