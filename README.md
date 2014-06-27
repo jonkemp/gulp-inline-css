@@ -67,7 +67,7 @@ var gulp = require('gulp'),
 gulp.task('default', function() {
     return gulp.src('./*.html')
         .pipe(inlineCss())
-        .pipe(gulp.dest('build/'));;
+        .pipe(gulp.dest('build/'));
 });
 ```
 
