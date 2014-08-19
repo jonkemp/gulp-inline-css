@@ -24,15 +24,15 @@
   },
   "homepage": "https://github.com/jonkemp/gulp-inline-css",
   "dependencies": {
-    "gulp-util": "^2.2.14",
+    "gulp-util": "^3.0.0",
     "juice2": "^1.2.0",
-    "through2": "^0.5.1"
+    "through2": "^0.6.1"
   },
   "devDependencies": {
-    "gulp": "^3.6.2",
-    "gulp-jshint": "^1.5.5",
-    "gulp-mocha": "^0.4.1",
-    "gulp-util": "^2.2.14",
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^1.0.0",
+    "gulp-util": "^3.0.0",
     "mocha": "*"
   }
 }
