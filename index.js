@@ -3,9 +3,9 @@ var gutil = require('gulp-util');
 var through = require('through2');
 var juice = require('juice2');
 
-module.exports = function(opt){
+module.exports = function(main_opt){
     return through.obj(function (file, enc, cb) {
-        opt = opt || {};
+        var opt = JSON.parse(JSON.stringify(main_opt || {}));
 
         // 'url' option is required
         // set it automatically if not provided
