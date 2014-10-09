@@ -54,3 +54,4 @@ describe('gulp-inline-css', function() {
         compare(two, path.join('test', 'expected', 'multiple', 'two', 'out.html'), options, bothDone);
     });
 });
+
