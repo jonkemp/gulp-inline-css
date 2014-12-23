@@ -4,7 +4,7 @@
   "description": "Inline linked css in an html file. Useful for emails.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter dot"
   },
   "repository": {
     "type": "git",
