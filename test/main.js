@@ -3,7 +3,7 @@
 
 'use strict';
 
-var assert = require('assert'),
+var should = require('should'),
     fs = require('fs'),
     path = require('path'),
     gutil = require('gulp-util'),
@@ -28,15 +28,43 @@ function compare(fixturePath, expectedPath, options, done) {
     // wait for the file to come back out
     stream.once('data', function (file) {
         // make sure it came out the same way it went in
-        assert(file.isBuffer());
+        should.ok(file.isBuffer());
 
         // check the contents
-        assert.equal(file.contents.toString('utf8'), String(fs.readFileSync(expectedPath)));
+        file.contents.toString('utf8').should.be.equal(String(fs.readFileSync(expectedPath)));
         done();
     });
 }
 
 describe('gulp-inline-css', function() {
+    /*it('file should pass through', function(done) {
+        var a = 0;
+
+        var fakeFile = new gutil.File({
+            path: './test/fixture/file.html',
+            cwd: './test/',
+            base: './test/fixture/',
+            contents: new Buffer('Hello World!')
+        });
+
+        var stream = inlineCss();
+
+        stream.on('data', function(newFile){
+            should.ok(newFile.contents);
+            should.equal(newFile.path, './test/fixture/file.html');
+            should.equal(newFile.relative, 'file.html');
+            ++a;
+        });
+
+        stream.once('end', function () {
+            should.equal(a, 1);
+            done();
+        });
+
+        stream.write(fakeFile);
+        stream.end();
+    });*/
+
     it('Should convert linked css to inline css', function(done) {
         var options = {};
         compare(path.join('test', 'fixtures', 'in.html'), path.join('test', 'expected', 'out.html'), options, done);
