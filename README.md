@@ -1,8 +1,13 @@
-# [gulp](https://github.com/wearefractal/gulp)-inline-css [![Build Status](https://travis-ci.org/jonkemp/gulp-inline-css.png?branch=master)](https://travis-ci.org/jonkemp/gulp-inline-css)
+# [gulp](https://github.com/wearefractal/gulp)-inline-css [![Build Status](https://travis-ci.org/jonkemp/gulp-inline-css.svg?branch=master)](https://travis-ci.org/jonkemp/gulp-inline-css)
 
 > Inline your CSS properties into the `style` attribute in an html file. Useful for emails.
 
-Inspired by the grunt plugin [grunt-inline-css](https://github.com/jgallen23/grunt-inline-css). Uses the [juice](https://github.com/andrewrk/juice) library.
+Inspired by the grunt plugin [grunt-inline-css](https://github.com/jgallen23/grunt-inline-css). Uses the [inline-css](https://github.com/jonkemp/inline-css) module.
+
+## What's new in 2.0?
+
+- Uses [inline-css](https://github.com/jonkemp/inline-css) instead of Juice
+- Works on Windows
 
 ## How It Works
 
@@ -89,7 +94,7 @@ gulp.task('default', function() {
 });
 ```
 
-Options are passed directly to [juice](https://github.com/andrewrk/juice).
+Options are passed directly to [inline-css](https://github.com/jonkemp/inline-css).
 
 
 ## API
