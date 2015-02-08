@@ -149,6 +149,19 @@ Default: `filePath`
 
 How to resolve hrefs.
 
+#### options.preserveMediaQueries
+
+Type: `Boolean`  
+Default: `false`
+
+Preserves all media queries (and contained styles) within `<style></style>` tags as a refinement when `removeStyleTags` is `true`. Other styles are removed.
+
+#### options.applyWidthAttributes
+
+Type: `Boolean`  
+Default: `false`
+
+Whether to use any CSS pixel widths to create `width` attributes on elements.
 
 ## License
 
