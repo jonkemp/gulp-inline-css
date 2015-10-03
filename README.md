@@ -4,10 +4,9 @@
 
 Inspired by the grunt plugin [grunt-inline-css](https://github.com/jgallen23/grunt-inline-css). Uses the [inline-css](https://github.com/jonkemp/inline-css) module.
 
-## What's new in 2.0?
+## What's new in 3.0?
 
-- Uses [inline-css](https://github.com/jonkemp/inline-css) instead of Juice
-- Works on Windows
+- Uses Promises with [inline-css](https://github.com/jonkemp/inline-css) version 2.0
 
 ## How It Works
 
@@ -162,6 +161,13 @@ Type: `Boolean`
 Default: `false`
 
 Whether to use any CSS pixel widths to create `width` attributes on elements.
+
+#### options.applyTableAttributes
+
+Type: `Boolean`
+Default: `false`
+
+Whether to apply the `border`, `cellpadding` and `cellspacing` attributes to `table` elements.
 
 ## License
 
