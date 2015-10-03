@@ -25,7 +25,7 @@
   "homepage": "https://github.com/jonkemp/gulp-inline-css",
   "dependencies": {
     "gulp-util": "^3.0.0",
-    "inline-css": "^1.0.1",
+    "inline-css": "^2.0.0",
     "through2": "^0.6.1"
   },
   "devDependencies": {

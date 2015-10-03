@@ -24,16 +24,18 @@ module.exports = function (opt) {
             return cb();
         }
 
-        inlineCss(file.contents, _opt, function (err, html) {
-            if (err) {
-                this.emit('error', new gutil.PluginError('gulp-inline-css', err));
-            }
+        inlineCss(file.contents, _opt)
+            .then(function (html) {
+                file.contents = new Buffer(String(html));
 
-            file.contents = new Buffer(String(html));
+                this.push(file);
 
-            this.push(file);
-
-            return cb();
-        }.bind(this));
+                return cb();
+            }.bind(this))
+            .catch(function (err) {
+                if (err) {
+                    this.emit('error', new gutil.PluginError('gulp-inline-css', err));
+                }
+            }.bind(this));
     });
 };
