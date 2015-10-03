@@ -8,7 +8,7 @@ var paths = {
     scripts: ['./*.js', '!./gulpfile.js']
 };
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
     return gulp.src(paths.scripts)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
@@ -16,10 +16,11 @@ gulp.task('lint', function() {
 
 gulp.task('jscs', function () {
     return gulp.src(paths.scripts)
-        .pipe(jscs());
+        .pipe(jscs())
+        .pipe(jscs.reporter());
 });
 
-gulp.task('test', function() {
+gulp.task('test', function () {
     return gulp.src('./test/*.js')
         .pipe(mocha({reporter: 'dot'}));
 });
