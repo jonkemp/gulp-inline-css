@@ -1,5 +1,7 @@
 # [gulp](https://github.com/wearefractal/gulp)-inline-css [![Build Status](https://travis-ci.org/jonkemp/gulp-inline-css.svg?branch=master)](https://travis-ci.org/jonkemp/gulp-inline-css)
 
+[![NPM](https://nodei.co/npm/gulp-inline-css.png?downloads=true)](https://nodei.co/npm/gulp-inline-css/)
+
 > Inline your CSS properties into the `style` attribute in an html file. Useful for emails.
 
 Inspired by the grunt plugin [grunt-inline-css](https://github.com/jgallen23/grunt-inline-css). Uses the [inline-css](https://github.com/jonkemp/inline-css) module.
