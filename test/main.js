@@ -6,7 +6,9 @@
 var should = require('should'),
     fs = require('fs'),
     path = require('path'),
+    gulp = require('gulp'),
     gutil = require('gulp-util'),
+    es = require('event-stream'),
     inlineCss = require('../index');
 
 function getFile(filePath) {
@@ -63,6 +65,36 @@ describe('gulp-inline-css', function() {
 
         stream.write(fakeFile);
         stream.end();
+    });
+
+    it('should let null files pass through', function(done) {
+        var stream = inlineCss(),
+            n = 0;
+
+        stream.pipe(es.through(function(file) {
+            should.equal(file.path, 'null.md');
+            should.equal(file.contents,  null);
+            n++;
+        }, function() {
+            should.equal(n, 1);
+            done();
+        }));
+
+        stream.write(new gutil.File({
+            path: 'null.md',
+            contents: null
+         }));
+
+        stream.end();
+    });
+
+    it('should emit error on streamed file', function (done) {
+      gulp.src(path.join('test', 'fixtures', 'in.html'), { buffer: false })
+        .pipe(inlineCss())
+        .on('error', function (err) {
+          err.message.should.equal('Streaming not supported');
+          done();
+        });
     });
 
     it('Should convert linked css to inline css', function(done) {
