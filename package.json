@@ -4,7 +4,8 @@
   "description": "Inline linked css in an html file. Useful for emails.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "mocha",
+    "lint": "gulp lint"
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-jscs": "^3.0.0",
-    "gulp-jshint": "^1.8.4",
+    "gulp-eslint": "^1.1.1",
     "gulp-mocha": "^2.0.0",
     "gulp-util": "^3.0.0",
     "mocha": "*",
