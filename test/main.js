@@ -37,7 +37,7 @@ function compare(fixturePath, expectedPath, options, done) {
 }
 
 describe('gulp-inline-css', function() {
-    /*it('file should pass through', function(done) {
+    it('file should pass through', function(done) {
         var a = 0;
 
         var fakeFile = new gutil.File({
@@ -63,7 +63,7 @@ describe('gulp-inline-css', function() {
 
         stream.write(fakeFile);
         stream.end();
-    });*/
+    });
 
     it('Should convert linked css to inline css', function(done) {
         var options = {};
