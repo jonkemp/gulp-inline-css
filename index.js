@@ -20,8 +20,8 @@ module.exports = function (opt) {
         }
 
         if (file.isStream()) {
-            this.emit('error', new gutil.PluginError('gulp-inline-css', 'Streaming not supported'));
-            return cb();
+            cb(new gutil.PluginError('gulp-inline-css', 'Streaming not supported'));
+            return;
         }
 
         inlineCss(file.contents, _opt)
