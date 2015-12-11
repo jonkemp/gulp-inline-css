@@ -3,27 +3,9 @@
   "version": "3.0.0",
   "description": "Inline linked css in an html file. Useful for emails.",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha",
-    "lint": "gulp lint"
+  "directories": {
+    "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jonkemp/gulp-inline-css"
-  },
-  "keywords": [
-    "gulpplugin",
-    "inline",
-    "css",
-    "html",
-    "email"
-  ],
-  "author": "Jonathan Kemp",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jonkemp/gulp-inline-css/issues"
-  },
-  "homepage": "https://github.com/jonkemp/gulp-inline-css",
   "dependencies": {
     "gulp-util": "^3.0.0",
     "inline-css": "^2.0.0",
@@ -36,5 +18,25 @@
     "gulp-util": "^3.0.0",
     "mocha": "*",
     "should": "^4.6.0"
-  }
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "gulp lint"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": "jonkemp/gulp-inline-css",
+  "keywords": [
+    "gulpplugin",
+    "inline",
+    "css",
+    "html",
+    "email"
+  ],
+  "author": "Jonathan Kemp <kempdogg@gmail.com> (http://jonkemp.com/)",
+  "license": "MIT"
 }
