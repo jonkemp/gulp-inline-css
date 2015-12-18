@@ -171,6 +171,13 @@ Default: `false`
 
 Whether to apply the `border`, `cellpadding` and `cellspacing` attributes to `table` elements.
 
+#### options.removeHtmlSelectors
+
+Type: `Boolean`  
+Default: `false`
+
+Whether to remove the `class` and `id` attributes from the markup.
+
 ## License
 
 MIT © [Jonathan Kemp](http://jonkemp.com)
