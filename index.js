@@ -6,7 +6,8 @@ var gutil = require('gulp-util'),
 
 module.exports = function (opt) {
     return through.obj(function (file, enc, cb) {
-        var _opt = JSON.parse(JSON.stringify(opt || {}));
+        var self = this,
+            _opt = JSON.parse(JSON.stringify(opt || {}));
 
         // 'url' option is required
         // set it automatically if not provided
@@ -28,14 +29,14 @@ module.exports = function (opt) {
             .then(function (html) {
                 file.contents = new Buffer(String(html));
 
-                this.push(file);
+                self.push(file);
 
                 return cb();
-            }.bind(this))
+            })
             .catch(function (err) {
                 if (err) {
-                    this.emit('error', new gutil.PluginError('gulp-inline-css', err));
+                    self.emit('error', new gutil.PluginError('gulp-inline-css', err));
                 }
-            }.bind(this));
+            });
     });
 };
