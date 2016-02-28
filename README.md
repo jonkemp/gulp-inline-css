@@ -178,6 +178,10 @@ Default: `false`
 
 Whether to remove the `class` and `id` attributes from the markup.
 
+### cheerio options
+
+Options to passed to [cheerio](https://github.com/cheeriojs/cheerio).
+
 ## License
 
 MIT © [Jonathan Kemp](http://jonkemp.com)
