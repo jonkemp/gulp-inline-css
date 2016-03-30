@@ -15,11 +15,11 @@
     "coveralls": "^2.11.6",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.0",
-    "gulp-eslint": "^1.1.1",
+    "gulp-eslint": "^2.0.0",
     "gulp-mocha": "^2.0.0",
     "mocha": "*",
-    "nyc": "^5.0.0",
-    "should": "^4.6.0"
+    "nyc": "^6.1.1",
+    "should": "*"
   },
   "engines": {
     "node": ">=0.10.0"
