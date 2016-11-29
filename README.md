@@ -148,7 +148,7 @@ Whether to remove the original `<link rel="stylesheet">` tags after (possibly) i
 Type: `String`  
 Default: `filePath`
 
-How to resolve hrefs.
+How to resolve stylesheet hrefs. This option relates to the `<link rel="stylesheet" href="style.css"` element in the example. Use `url: 'file://' + ...` to override.
 
 #### options.preserveMediaQueries
 
