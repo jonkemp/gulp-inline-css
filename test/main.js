@@ -43,9 +43,9 @@ describe('gulp-inline-css', function() {
         var a = 0;
 
         var fakeFile = new Vinyl({
-            path: './test/fixture/file.html',
-            cwd: './test/',
-            base: './test/fixture/',
+            path: '/test/fixture/file.html',
+            cwd: '/test/',
+            base: '/test/fixture/',
             contents: new Buffer('Hello World!')
         });
 
@@ -53,7 +53,7 @@ describe('gulp-inline-css', function() {
 
         stream.on('data', function(newFile){
             should.ok(newFile.contents);
-            should.equal(newFile.path, './test/fixture/file.html');
+            should.equal(newFile.path, '/test/fixture/file.html');
             should.equal(newFile.relative, 'file.html');
             ++a;
         });
