@@ -1,6 +1,6 @@
 'use strict';
 
-var gutil = require('gulp-util'),
+var PluginError = require('plugin-error'),
     through = require('through2'),
     inlineCss = require('inline-css');
 
@@ -21,7 +21,7 @@ module.exports = function (opt) {
         }
 
         if (file.isStream()) {
-            cb(new gutil.PluginError('gulp-inline-css', 'Streaming not supported'));
+            cb(new PluginError('gulp-inline-css', 'Streaming not supported'));
             return;
         }
 
@@ -35,7 +35,7 @@ module.exports = function (opt) {
             })
             .catch(function (err) {
                 if (err) {
-                    self.emit('error', new gutil.PluginError('gulp-inline-css', err));
+                    self.emit('error', new PluginError('gulp-inline-css', err));
                 }
             });
     });

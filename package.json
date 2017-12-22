@@ -7,8 +7,8 @@
     "test": "test"
   },
   "dependencies": {
-    "gulp-util": "^3.0.0",
     "inline-css": "^2.2.1",
+    "plugin-error": "^0.1.2",
     "through2": "^2.0.3"
   },
   "devDependencies": {
@@ -19,7 +19,8 @@
     "gulp-mocha": "^4.3.1",
     "mocha": "*",
     "nyc": "^11.3.0",
-    "should": "*"
+    "should": "*",
+    "vinyl": "^2.1.0"
   },
   "engines": {
     "node": ">=0.10.0"

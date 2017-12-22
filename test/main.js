@@ -7,12 +7,12 @@ var should = require('should'),
     fs = require('fs'),
     path = require('path'),
     gulp = require('gulp'),
-    gutil = require('gulp-util'),
+    Vinyl = require('vinyl'),
     es = require('event-stream'),
     inlineCss = require('../index');
 
 function getFile(filePath) {
-    return new gutil.File({
+    return new Vinyl({
         path: path.resolve(filePath),
         cwd: './test/',
         base: path.dirname(filePath),
@@ -42,7 +42,7 @@ describe('gulp-inline-css', function() {
     it('file should pass through', function(done) {
         var a = 0;
 
-        var fakeFile = new gutil.File({
+        var fakeFile = new Vinyl({
             path: './test/fixture/file.html',
             cwd: './test/',
             base: './test/fixture/',
@@ -80,7 +80,7 @@ describe('gulp-inline-css', function() {
             done();
         }));
 
-        stream.write(new gutil.File({
+        stream.write(new Vinyl({
             path: 'null.md',
             contents: null
          }));
