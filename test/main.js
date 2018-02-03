@@ -53,7 +53,7 @@ describe('gulp-inline-css', function() {
 
         stream.on('data', function(newFile){
             should.ok(newFile.contents);
-            should.equal(newFile.path, '/test/fixture/file.html');
+            should.equal(newFile.path, path.normalize('/test/fixture/file.html'));
             should.equal(newFile.relative, 'file.html');
             ++a;
         });
