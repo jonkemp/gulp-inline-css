@@ -25,7 +25,7 @@ module.exports = function (opt) {
             return;
         }
 
-        inlineCss(file.contents, _opt)
+        inlineCss(file.contents.toString('utf8'), _opt)
             .then(function (html) {
                 file.contents = new Buffer(String(html));
 
