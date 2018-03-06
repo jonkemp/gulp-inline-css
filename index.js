@@ -25,9 +25,9 @@ module.exports = function (opt) {
             return;
         }
 
-        inlineCss(file.contents, _opt)
+        inlineCss(String(file.contents), _opt)
             .then(function (html) {
-                file.contents = new Buffer(String(html));
+                file.contents = new Buffer(html);
 
                 self.push(file);
 
