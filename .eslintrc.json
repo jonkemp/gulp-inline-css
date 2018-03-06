@@ -118,7 +118,7 @@
       3
     ],
     "max-statements": [
-      1,
+      0,
       10
     ],
     "new-cap": 2,
