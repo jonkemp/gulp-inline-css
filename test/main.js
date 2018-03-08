@@ -107,4 +107,18 @@ describe('gulp-inline-css', function() {
         compare(path.join('test', 'fixtures', 'multiple', 'one', 'in.html'), path.join('test', 'expected', 'multiple', 'one', 'out.html'), options, function () {});
         compare(path.join('test', 'fixtures', 'multiple', 'two', 'in.html'), path.join('test', 'expected', 'multiple', 'two', 'out.html'), options, done);
     });
+
+    it('Should ignore hbs code blocks', function(done) {
+        var options = {};
+        compare(path.join('test', 'fixtures', 'codeblocks.html'), path.join('test', 'expected', 'codeblocks.html'), options, done);
+    });
+
+    it('Should ignore user defined code blocks', function(done) {
+        var options = {
+            codeBlocks: {
+                craze: { start: '<<', end: '>>' }
+            }
+        };
+        compare(path.join('test', 'fixtures', 'codeblocks-external.html'), path.join('test', 'expected', 'codeblocks-external.html'), options, done);
+    });
 });
