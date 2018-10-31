@@ -22,7 +22,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(paths.scripts, ['lint', 'test']);
+    gulp.watch(paths.scripts, gulp.parallel('lint', 'test'));
 });
 
-gulp.task('default', ['lint', 'test', 'watch']);
+gulp.task('default', gulp.parallel('lint', 'test', 'watch'));
