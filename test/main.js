@@ -16,7 +16,7 @@ function getFile(filePath) {
         path: path.resolve(filePath),
         cwd: './test/',
         base: path.dirname(filePath),
-        contents: new Buffer(String(fs.readFileSync(filePath)))
+        contents: Buffer.from(String(fs.readFileSync(filePath)))
     });
 }
 
@@ -46,7 +46,7 @@ describe('gulp-inline-css', function() {
             path: '/test/fixture/file.html',
             cwd: '/test/',
             base: '/test/fixture/',
-            contents: new Buffer('Hello World!')
+            contents: Buffer.from('Hello World!')
         });
 
         var stream = inlineCss();
