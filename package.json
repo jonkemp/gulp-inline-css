@@ -12,11 +12,11 @@
     "through2": "^3.0.1"
   },
   "devDependencies": {
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.6",
     "event-stream": "^4.0.1",
     "gulp": "^4.0.2",
-    "gulp-eslint": "^5.0.0",
-    "gulp-mocha": "^6.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-mocha": "^7.0.2",
     "mocha": "*",
     "nyc": "^14.1.1",
     "should": "*",
