@@ -7,12 +7,12 @@
     "test": "test"
   },
   "dependencies": {
-    "inline-css": "^2.4.2",
+    "inline-css": "^2.5.0",
     "plugin-error": "^1.0.1",
     "through2": "^3.0.1"
   },
   "devDependencies": {
-    "coveralls": "^3.0.6",
+    "coveralls": "^3.0.7",
     "event-stream": "^4.0.1",
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
