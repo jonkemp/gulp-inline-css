@@ -7,21 +7,21 @@
     "test": "test"
   },
   "dependencies": {
-    "inline-css": "^2.6.0",
+    "inline-css": "^3.0.0",
     "plugin-error": "^1.0.1",
-    "through2": "^3.0.1"
+    "through2": "^4.0.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "coveralls": "^3.0.9",
+    "babel-eslint": "^10.1.0",
+    "coveralls": "^3.1.0",
     "event-stream": "^4.0.1",
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
     "gulp-mocha": "^7.0.2",
-    "mocha": "*",
-    "nyc": "^15.0.0",
+    "mocha": "^8.2.0",
+    "nyc": "^15.1.0",
     "should": "*",
-    "vinyl": "^2.2.0"
+    "vinyl": "^2.2.1"
   },
   "engines": {
     "node": ">=0.10.0"
