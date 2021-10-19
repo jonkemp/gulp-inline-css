@@ -1,4 +1,4 @@
-# [gulp](https://github.com/wearefractal/gulp)-inline-css [![Build Status](https://travis-ci.org/jonkemp/gulp-inline-css.svg?branch=master)](https://travis-ci.org/jonkemp/gulp-inline-css) [![Coverage Status](https://coveralls.io/repos/jonkemp/gulp-inline-css/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonkemp/gulp-inline-css?branch=master)
+# [gulp](https://github.com/wearefractal/gulp)-inline-css ![Build Status](https://github.com/jonkemp/gulp-inline-css/actions/workflows/main.yml/badge.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/jonkemp/gulp-inline-css/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonkemp/gulp-inline-css?branch=master)
 
 [![NPM](https://nodei.co/npm/gulp-inline-css.png?downloads=true)](https://nodei.co/npm/gulp-inline-css/)
 
