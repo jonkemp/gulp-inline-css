@@ -4,6 +4,7 @@
 const should = require('should');
 const fs = require('fs');
 const path = require('path');
+const { once } = require('events');
 const { Readable } = require('stream');
 const Vinyl = require('vinyl');
 const es = require('event-stream');
@@ -18,22 +19,15 @@ function getFile(filePath) {
     });
 }
 
-function compare(fixturePath, expectedPath, options, done) {
-    // Create a plugin stream
+async function compare(fixturePath, expectedPath, options) {
     const stream = inlineCss(options);
+    const output = once(stream, 'data');
 
-    // write the fake file to it
-    stream.write(getFile(fixturePath));
+    stream.end(getFile(fixturePath));
 
-    // wait for the file to come back out
-    stream.once('data', file => {
-        // make sure it came out the same way it went in
-        should.ok(file.isBuffer());
-
-        // check the contents
-        file.contents.toString('utf8').should.be.equal(String(fs.readFileSync(expectedPath)));
-        done();
-    });
+    const [file] = await output;
+    should.ok(file.isBuffer());
+    file.contents.toString('utf8').should.be.equal(fs.readFileSync(expectedPath, 'utf8'));
 }
 
 describe('gulp-inline-css', () => {
@@ -100,28 +94,24 @@ describe('gulp-inline-css', () => {
         }));
     });
 
-    it('Should convert linked css to inline css', done => {
-        const options = {};
-        compare(path.join('test', 'fixtures', 'in.html'), path.join('test', 'expected', 'out.html'), options, done);
-    });
+    it('Should convert linked css to inline css', () =>
+        compare(path.join('test', 'fixtures', 'in.html'), path.join('test', 'expected', 'out.html')));
 
-    it('Should inline css in multiple HTML files', done => {
-        const options = {};
-        compare(path.join('test', 'fixtures', 'multiple', 'one', 'in.html'), path.join('test', 'expected', 'multiple', 'one', 'out.html'), options, () => {});
-        compare(path.join('test', 'fixtures', 'multiple', 'two', 'in.html'), path.join('test', 'expected', 'multiple', 'two', 'out.html'), options, done);
-    });
+    it('Should inline css in multiple HTML files', () => Promise.all([
+        compare(path.join('test', 'fixtures', 'multiple', 'one', 'in.html'), path.join('test', 'expected', 'multiple', 'one', 'out.html')),
+        compare(path.join('test', 'fixtures', 'multiple', 'two', 'in.html'), path.join('test', 'expected', 'multiple', 'two', 'out.html'))
+    ]));
 
-    it('Should ignore hbs code blocks', done => {
-        const options = {};
-        compare(path.join('test', 'fixtures', 'codeblocks.html'), path.join('test', 'expected', 'codeblocks.html'), options, done);
-    });
+    it('Should ignore hbs code blocks', () =>
+        compare(path.join('test', 'fixtures', 'codeblocks.html'), path.join('test', 'expected', 'codeblocks.html')));
 
-    it('Should ignore user defined code blocks', done => {
+    it('Should ignore user defined code blocks', () => {
         const options = {
             codeBlocks: {
                 craze: { start: '<<', end: '>>' }
             }
         };
-        compare(path.join('test', 'fixtures', 'codeblocks-external.html'), path.join('test', 'expected', 'codeblocks-external.html'), options, done);
+
+        return compare(path.join('test', 'fixtures', 'codeblocks-external.html'), path.join('test', 'expected', 'codeblocks-external.html'), options);
     });
 });
