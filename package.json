@@ -12,14 +12,12 @@
     "through2": "^4.0.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "coveralls": "^3.1.0",
+    "@eslint/js": "^10.0.1",
+    "c8": "^12.0.0",
+    "eslint": "^10.15.0",
     "event-stream": "^4.0.1",
-    "gulp": "^4.0.2",
-    "gulp-eslint": "^6.0.0",
-    "gulp-mocha": "^7.0.2",
-    "mocha": "^8.2.0",
-    "nyc": "^15.1.0",
+    "gulp": "^5.0.1",
+    "mocha": "^12.0.3",
     "should": "*",
     "vinyl": "^2.2.1"
   },
@@ -29,8 +27,8 @@
   "scripts": {
     "test": "mocha",
     "lint": "gulp lint",
-    "coverage": "nyc npm test && nyc report",
-    "coveralls": "nyc npm test && nyc report --reporter=lcov"
+    "coverage": "c8 --include=index.js --reporter=text mocha",
+    "coveralls": "c8 --include=index.js --reporter=lcov mocha"
   },
   "files": [
     "index.js"

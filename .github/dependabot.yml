@@ -1,0 +1,27 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      runtime-updates:
+        dependency-type: production
+        update-types: [minor, patch]
+      tooling-updates:
+        dependency-type: development
+        update-types: [minor, patch]
+      runtime-security:
+        applies-to: security-updates
+        dependency-type: production
+      tooling-security:
+        applies-to: security-updates
+        dependency-type: development
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions-updates:
+        patterns: ["*"]
+        update-types: [minor, patch]

@@ -4,7 +4,7 @@
 const should = require('should');
 const fs = require('fs');
 const path = require('path');
-const gulp = require('gulp');
+const { Readable } = require('stream');
 const Vinyl = require('vinyl');
 const es = require('event-stream');
 const inlineCss = require('../index');
@@ -87,12 +87,17 @@ describe('gulp-inline-css', () => {
     });
 
     it('should emit error on streamed file', done => {
-      gulp.src(path.join('test', 'fixtures', 'in.html'), { buffer: false })
-        .pipe(inlineCss())
-        .on('error', ({message}) => {
-          message.should.equal('Streaming not supported');
-          done();
+        const stream = inlineCss();
+
+        stream.once('error', ({ message }) => {
+            message.should.equal('Streaming not supported');
+            done();
         });
+
+        stream.end(new Vinyl({
+            path: 'in.html',
+            contents: Readable.from(['<html></html>'])
+        }));
     });
 
     it('Should convert linked css to inline css', done => {
