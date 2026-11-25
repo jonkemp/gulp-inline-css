@@ -1,22 +1,36 @@
-/* eslint-disable */
+const { execFile } = require('node:child_process');
 const gulp = require('gulp');
-const mocha = require('gulp-mocha');
-const eslint = require('gulp-eslint');
+const { ESLint } = require('eslint');
 
-const paths = {
-    scripts: ['./*.js', '!./gulpfile.js']
-};
+const scripts = ['index.js'];
 
-gulp.task('lint', () => gulp.src(paths.scripts)
-    .pipe(eslint({fix: true}))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError()));
+gulp.task('lint', async () => {
+    const eslint = new ESLint({ fix: true });
+    const results = await eslint.lintFiles(scripts);
 
-gulp.task('test', () => gulp.src('./test/*.js')
-    .pipe(mocha({ reporter: 'spec' })));
+    await ESLint.outputFixes(results);
+
+    const formatter = await eslint.loadFormatter('stylish');
+    const output = formatter.format(results);
+
+    if (output) {
+        process.stdout.write(output);
+    }
+
+    if (results.some(result => result.errorCount > 0)) {
+        throw new Error('Lint failed');
+    }
+});
+
+gulp.task('test', done => {
+    const child = execFile(process.execPath, [require.resolve('mocha/bin/mocha.js')], done);
+
+    child.stdout.pipe(process.stdout);
+    child.stderr.pipe(process.stderr);
+});
 
 gulp.task('watch', () => {
-    gulp.watch(paths.scripts, gulp.parallel('lint', 'test'));
+    gulp.watch(scripts, gulp.parallel('lint', 'test'));
 });
 
 gulp.task('default', gulp.parallel('lint', 'test', 'watch'));
