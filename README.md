@@ -6,9 +6,11 @@
 
 Inspired by the grunt plugin [grunt-inline-css](https://github.com/jgallen23/grunt-inline-css). Uses the [inline-css](https://github.com/jonkemp/inline-css) module.
 
-## What's new in 3.0?
+## Upgrading to 5.0
 
-- Uses Promises with [inline-css](https://github.com/jonkemp/inline-css) version 2.0
+Version 5 requires Node.js 22 or newer. Upgrade the Node version used to run Gulp locally and in CI before updating the plugin.
+
+The upgrade to `inline-css` 4 changes how HTML is parsed and serialized. Output can include an implicit `<head>` or `<tbody>`, and whitespace around document tags can move or disappear. Review representative templates, especially email tables and template blocks. Check CSS selectors and downstream transforms that rely on direct table rows, such as `table > tr`, and regenerate snapshots after reviewing the output.
 
 ## How It Works
 
@@ -38,13 +40,15 @@ p {
 
 Output:
 ```html
-<html>
-<head>
+<html><head>
+
+
 </head>
 <body>
   <p style="color: red; text-decoration: underline;">Test</p>
-</body>
-</html>
+
+
+</body></html>
 ```
 
 ## What is this useful for ?
